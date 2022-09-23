@@ -1,5 +1,6 @@
 package de.eccogaming.isbnservice.services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,8 +15,8 @@ class IsbnApiServiceTest{
     IsbnApiService isbnApiService;
 
     @Test
-    public void test() {
-        isbnApiService.getBookDataWithISBN("test");
+    public void test() throws JsonProcessingException {
+        isbnApiService.getBookDataWithISBN("1491950358");
     }
 
 }

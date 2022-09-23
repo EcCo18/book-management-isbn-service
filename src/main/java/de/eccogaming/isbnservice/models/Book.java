@@ -1,10 +1,13 @@
 package de.eccogaming.isbnservice.models;
 
+import lombok.Data;
+
+@Data
 public class Book {
-    private String bibKey;
-    private String infoURL;
+    private String bib_key;
+    private String info_url;
     private String preview;
-    private String previewURL;
-    private String thumbnailURL;
+    private String preview_url;
+    private String thumbnail_url;
     private Details details;
 }

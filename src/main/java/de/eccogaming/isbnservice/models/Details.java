@@ -1,27 +1,30 @@
 package de.eccogaming.isbnservice.models;
 
+import lombok.Data;
+
+@Data
 public class Details {
     private String[] publishers;
-    private long numberOfPages;
-    private String[] isbn10;
+    private long number_of_pages;
+    private String[] isbn_10;
     private long[] covers;
-    private String physicalFormat;
+    private String physical_format;
     private String key;
     private Author[] authors;
-    private String[] publishPlaces;
+    private String[] publish_places;
     private Classifications classifications;
-    private String[] sourceRecords;
+    private String[] source_records;
     private String title;
     private Classifications identifiers;
-    private String[] isbn13;
-    private String[] localID;
-    private String publishDate;
-    private String copyrightDate;
+    private String[] isbn_13;
+    private String[] local_id;
+    private String publish_date;
+    private String copyright_date;
     private Type[] works;
     private Type type;
-    private String[] lcClassifications;
-    private long latestRevision;
+    private String[] lc_classifications;
+    private long latest_revision;
     private long revision;
     private Created created;
-    private Created lastModified;
+    private Created last_modified;
 }
