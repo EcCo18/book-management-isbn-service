@@ -1,2 +1,20 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: spring_book_management_isbn_service
+  datasource:
+    url: jdbc:h2:mem:dcbapp
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: true
+  main:
+    banner-mode: off
 environment:
   isbn-url: https://openlibrary.org/api/books?bibkeys=ISBN:ISBN_HOLDER&jscmd=details&format=json
