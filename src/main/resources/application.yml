@@ -24,3 +24,5 @@ management:
   metrics:
     tags:
       application: ${spring.application.name}
+environment:
+  isbn-url: https://openlibrary.org/api/books?bibkeys=ISBN:ISBN_HOLDER&jscmd=details&format=json
