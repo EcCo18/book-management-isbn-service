@@ -15,7 +15,7 @@ class IsbnApiServiceTest{
     IsbnApiService isbnApiService;
 
     @Test
-    public void test() throws JsonProcessingException {
+    public void test() throws Exception {
         isbnApiService.getBookDataWithISBN("1491950358");
     }
 

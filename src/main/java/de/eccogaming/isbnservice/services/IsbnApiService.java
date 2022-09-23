@@ -12,29 +12,29 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class IsbnApiService {
 
     @Value("${environment.isbn-url}")
-    private String isbnUrl;
+    private String isbnInformationUrl;
 
     WebClient webClient = WebClient.create();
     ObjectMapper objectMapper = new ObjectMapper();
 
-    // ToDo refactor
-    public Book getBookDataWithISBN(String isbn) throws JsonProcessingException {
-        System.out.println(isbnUrl);
-        isbnUrl = isbnUrl.replace("ISBN_HOLDER", isbn);
-        System.out.println(isbnUrl);
+    // ToDo refactor, add exception when string is null, add validation
+    public Book getBookDataWithISBN(String isbn) throws Exception {
+        // System.out.println(isbnInformationUrl);
+        isbnInformationUrl = isbnInformationUrl.replace("ISBN_HOLDER", isbn);
+        // System.out.println(isbnInformationUrl);
 
-        String test = webClient.get()
-                .uri(isbnUrl)
+        String bookData = webClient.get()
+                .uri(isbnInformationUrl)
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
-
-        System.out.println(test);
-        test = test.replaceFirst("ISBN:" + isbn, "book"); // replace changing key
-        System.out.println(test);
-
-        BookWrapper bookWrapper = objectMapper.readValue(test, BookWrapper.class);
-
-        return bookWrapper.getBook();
+        if(bookData != null) {
+            // System.out.println(bookData);
+            bookData = bookData.replaceFirst("ISBN:" + isbn, "book"); // replace changing json key
+            // System.out.println(bookData);
+            BookWrapper bookWrapper = objectMapper.readValue(bookData, BookWrapper.class);
+            return bookWrapper.getBook();
+        }
+        throw new Exception("couldn't get book data");
     }
 }
