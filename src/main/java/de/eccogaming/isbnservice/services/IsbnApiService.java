@@ -1,9 +1,8 @@
 package de.eccogaming.isbnservice.services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.eccogaming.isbnservice.models.Book;
-import de.eccogaming.isbnservice.models.BookWrapper;
+import de.eccogaming.isbnservice.models.isbn.Book;
+import de.eccogaming.isbnservice.models.isbn.BookWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

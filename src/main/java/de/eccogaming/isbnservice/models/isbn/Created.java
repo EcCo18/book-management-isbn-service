@@ -1,4 +1,4 @@
-package de.eccogaming.isbnservice.models;
+package de.eccogaming.isbnservice.models.isbn;
 
 import lombok.Data;
 
