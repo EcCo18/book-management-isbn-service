@@ -4,11 +4,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.eccogaming.isbnservice.models.Book;
 import de.eccogaming.isbnservice.models.BookWrapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
+@Slf4j
 public class IsbnApiService {
 
     @Value("${environment.isbn-url}")
@@ -19,9 +21,8 @@ public class IsbnApiService {
 
     // ToDo refactor, add exception when string is null, add validation
     public Book getBookDataWithISBN(String isbn) throws Exception {
-        // System.out.println(isbnInformationUrl);
+        log.info("receiving data from " + isbnInformationUrl + ". for isbn: " + isbn);
         isbnInformationUrl = isbnInformationUrl.replace("ISBN_HOLDER", isbn);
-        // System.out.println(isbnInformationUrl);
 
         String bookData = webClient.get()
                 .uri(isbnInformationUrl)
