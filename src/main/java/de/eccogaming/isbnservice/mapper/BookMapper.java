@@ -12,7 +12,7 @@ public class BookMapper {
     // book to dto
     public BookDto mapBookToDto(Book book) {
         return BookDto.builder()
-                .author(extractAuthorsToList(book.getDetails().getAuthors()))
+                .authors(extractAuthorsToList(book.getDetails().getAuthors()))
                 .releaseYear(1)
                 .isbn(book.getDetails().getIsbn_13()[0])
                 .build();

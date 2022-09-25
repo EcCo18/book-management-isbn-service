@@ -18,7 +18,7 @@ public class BookDto {
     private int id;
 
     @NotNull
-    private List<String> author;
+    private List<String> authors;
 
     @Min(1)
     private int releaseYear;
