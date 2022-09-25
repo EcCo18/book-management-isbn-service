@@ -18,7 +18,7 @@ public class IsbnApiService {
     WebClient webClient = WebClient.create();
     ObjectMapper objectMapper = new ObjectMapper();
 
-    // ToDo refactor, add exception when string is null, add validation
+    // ToDo refactor, add better exception when string is null, add validation
     public Book getBookDataWithISBN(String isbn) throws Exception {
         log.info("receiving data from " + isbnInformationUrl + ". for isbn: " + isbn);
         isbnInformationUrl = isbnInformationUrl.replace("ISBN_HOLDER", isbn);

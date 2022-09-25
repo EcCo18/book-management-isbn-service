@@ -6,7 +6,7 @@
         </Console>
         <File name="File" fileName="${sys:log4j2.log_file_path}">
             <PatternLayout>
-                <Pattern>date=%d{YYYY:MM:dd HH:mm:ss.SSS} level=%p module=%logger{36} message=%m%n</Pattern>
+                <Pattern>date="%d{YYYY:MM:dd HH:mm:ss.SSS}" level="%p" module="%logger{36}" message="%m"%n</Pattern>
             </PatternLayout>
         </File>
     </Appenders>

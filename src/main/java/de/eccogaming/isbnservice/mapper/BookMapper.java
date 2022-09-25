@@ -3,10 +3,12 @@ package de.eccogaming.isbnservice.mapper;
 import de.eccogaming.isbnservice.models.isbn.Author;
 import de.eccogaming.isbnservice.models.isbn.Book;
 import de.eccogaming.isbnservice.models.isbn.dtos.BookDto;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class BookMapper {
 
     // book to dto
