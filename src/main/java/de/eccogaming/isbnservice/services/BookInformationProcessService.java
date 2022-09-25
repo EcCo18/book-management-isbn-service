@@ -16,8 +16,10 @@ public class BookInformationProcessService {
     private final KafkaTemplate<String, BookDto> kafkaTemplate;
     private final BookMapper bookMapper;
 
-    public void processBookInformation(Book book) {
+    public void processBookInformation(Book book, int bookId) {
         log.info("send complete book information to topic isbn-book-information");
-        kafkaTemplate.send("isbn-book-information", bookMapper.mapBookToDto(book));
+        BookDto bookDto = bookMapper.mapBookToDto(book);
+        bookDto.setId(bookId);
+        kafkaTemplate.send("isbn-book-information", bookDto);
     }
 }

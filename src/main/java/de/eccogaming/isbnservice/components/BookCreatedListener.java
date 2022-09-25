@@ -27,7 +27,8 @@ public class BookCreatedListener {
         log.info("received book with id=" + bookDto.getId() + " isbn=" + bookDto.getIsbn());
         try {
             bookInformationProcessService.processBookInformation(
-                    isbnApiService.getBookDataWithISBN(bookDto.getIsbn())
+                    isbnApiService.getBookDataWithISBN(bookDto.getIsbn()),
+                    bookDto.getId()
             );
         } catch (Exception e) {
             log.error(e.getMessage());
