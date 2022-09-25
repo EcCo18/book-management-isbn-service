@@ -17,7 +17,6 @@ public class BookDto {
 
     private int id;
 
-    @NotNull
     private List<String> authors;
 
     @Min(1)
@@ -25,4 +24,6 @@ public class BookDto {
 
     @NotNull
     private String isbn;
+
+    private String name;
 }
