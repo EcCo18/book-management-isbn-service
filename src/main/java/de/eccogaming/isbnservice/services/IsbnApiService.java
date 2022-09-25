@@ -21,10 +21,10 @@ public class IsbnApiService {
     // ToDo refactor, add better exception when string is null, add validation
     public Book getBookDataWithISBN(String isbn) throws Exception {
         log.info("receiving data from " + isbnInformationUrl + ". for isbn: " + isbn);
-        isbnInformationUrl = isbnInformationUrl.replace("ISBN_HOLDER", isbn);
+        String isbnInformationUrlReplaced = isbnInformationUrl.replace("ISBN_HOLDER", isbn);
 
         String bookData = webClient.get()
-                .uri(isbnInformationUrl)
+                .uri(isbnInformationUrlReplaced)
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
