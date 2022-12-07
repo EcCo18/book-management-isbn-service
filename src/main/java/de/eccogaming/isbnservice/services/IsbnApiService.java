@@ -28,7 +28,8 @@ public class IsbnApiService {
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
-        if(bookData != null) {
+        if(bookData != null && bookData.contains("bib_key")) {
+            System.out.println(bookData);
             bookData = bookData.replaceFirst("ISBN:" + isbn, "book"); // replace changing json key
             BookWrapper bookWrapper = objectMapper.readValue(bookData, BookWrapper.class);
             return bookWrapper.getBook();
