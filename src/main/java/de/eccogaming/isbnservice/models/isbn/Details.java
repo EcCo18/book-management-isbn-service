@@ -4,6 +4,17 @@ import lombok.Data;
 
 @Data
 public class Details {
+    private TableContent[] table_of_contents;
+    private Description description;
+    private String subtitle;
+    private String pagination;
+    private String[] dewey_decimal_class;
+    private TypeValue notes;
+    private String[] lccn;
+    private String[] subjects;
+    private String publish_country;
+    private String by_statement;
+    private String[] oclc_numbers;
     private String[] publishers;
     private long number_of_pages;
     private String[] isbn_10;

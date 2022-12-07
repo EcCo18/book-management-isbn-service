@@ -16,7 +16,7 @@ public class BookMapper {
         return BookDto.builder()
                 .name(book.getDetails().getTitle())
                 .authors(extractAuthorsToList(book.getDetails().getAuthors()))
-                .releaseYear(Integer.parseInt(book.getDetails().getCopyright_date()))
+                .releaseYear(-1)
                 .isbn(book.getDetails().getIsbn_13()[0])
                 .build();
     }
