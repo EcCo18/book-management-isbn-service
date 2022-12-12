@@ -18,20 +18,18 @@ public class IsbnApiService {
     WebClient webClient = WebClient.create();
     ObjectMapper objectMapper = new ObjectMapper();
 
-    // ToDo refactor, add exception when string is null, add validation
+    // ToDo refactor, add better exception when string is null, add validation
     public Book getBookDataWithISBN(String isbn) throws Exception {
         log.info("receiving data from " + isbnInformationUrl + ". for isbn: " + isbn);
-        isbnInformationUrl = isbnInformationUrl.replace("ISBN_HOLDER", isbn);
+        String isbnInformationUrlReplaced = isbnInformationUrl.replace("ISBN_HOLDER", isbn);
 
         String bookData = webClient.get()
-                .uri(isbnInformationUrl)
+                .uri(isbnInformationUrlReplaced)
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
-        if(bookData != null) {
-            // System.out.println(bookData);
+        if(bookData != null && bookData.contains("bib_key")) {
             bookData = bookData.replaceFirst("ISBN:" + isbn, "book"); // replace changing json key
-            // System.out.println(bookData);
             BookWrapper bookWrapper = objectMapper.readValue(bookData, BookWrapper.class);
             return bookWrapper.getBook();
         }
