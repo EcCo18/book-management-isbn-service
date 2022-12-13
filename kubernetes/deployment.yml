@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: isbn-service-app
-          image: ecco18/isbn-service:v7
+          image: ecco18/isbn-service:v1
           ports:
             - containerPort: 8083
 ---
